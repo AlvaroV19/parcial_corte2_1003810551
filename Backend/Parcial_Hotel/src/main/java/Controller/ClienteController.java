@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("/api/cliente/")
+
 public class ClienteController {
 
     @Autowired
@@ -18,7 +22,7 @@ public class ClienteController {
         return iClienteService.findAll();
     }
 
-    @GetMapping("getCliente/{id}")
+    @GetMapping("/getCliente/{id}")
     public Optional<Cliente> findById(@PathVariable Long id) {
         return iClienteService.findById(id);
     }
@@ -29,11 +33,11 @@ public class ClienteController {
     }
 
 
-    @PutMapping("updateCliente/{id}")
+    @PutMapping("/updateCliente/{id}")
     public void update(@RequestBody Cliente cliente, @PathVariable Long id) {
         iClienteService.update(cliente, id);
     }
-    @DeleteMapping("deleteCliente/{id}")
+    @DeleteMapping("/deleteCliente/{id}")
     public void delete(@PathVariable Long id) {
         iClienteService.delete(id);
     }

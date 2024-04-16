@@ -22,7 +22,7 @@ public class ReservaController {
         return iReservaService.findAll();
     }
 
-    @GetMapping("getAutor/{id}")
+    @GetMapping("/getAutor/{id}")
     public Optional<Reserva> findById(@PathVariable Long id) {
         return iReservaService.findById(id);
     }
@@ -33,11 +33,11 @@ public class ReservaController {
     }
 
 
-    @PutMapping("updateAutor/{id}")
+    @PutMapping("/updateAutor/{id}")
     public void update(@RequestBody Reserva reserva, @PathVariable Long id) {
         iReservaService.update(reserva, id);
     }
-    @DeleteMapping("deleteAutor/{id}")
+    @DeleteMapping("/deleteAutor/{id}")
     public void delete(@PathVariable Long id) {
         iReservaService.delete(id);
     }
